@@ -6,7 +6,7 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:32:26 by cayamash          #+#    #+#             */
-/*   Updated: 2024/11/04 18:48:06 by cayamash         ###   ########.fr       */
+/*   Updated: 2024/11/06 17:06:51 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,15 @@
 # include <unistd.h>
 # include <stddef.h>
 # include <sys/types.h>
+#include <stdio.h> //del
 
 char	*get_next_line(int fd);
-size_t	line_len(const char *s);
-size_t	ft_strlen(const char *s);
+ssize_t	ft_line_len(const char *s);
 void	*ft_calloc(size_t nmemb, size_t size);
-unsigned char	*ft_strchr(const char *s, int c);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strdup(const char *s);
+size_t	ft_strlen(const char *s);
+char	*ft_strchr(const char *s, int c);
 
 #endif
