@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 10:28:05 by cayamash          #+#    #+#             */
-/*   Updated: 2024/11/11 18:19:07 by cayamash         ###   ########.fr       */
+/*   Created: 2024/11/11 18:13:55 by cayamash          #+#    #+#             */
+/*   Updated: 2024/11/11 18:21:37 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+
+#include "get_next_line_bonus.h"
 
 static char	*read_line(int fd, char *buffer, char *rest);
 static char	*get_rest(char *line);
@@ -20,9 +21,9 @@ char	*get_next_line(int fd)
 {
 	char		*line;
 	char		*buffer;
-	static char	*rest;
+	static char	*rest[FD_LEN];
 
-	if (fd == -1 || BUFFER_SIZE <= 0)
+	if (fd == -1 || BUFFER_SIZE <= 0 || fd > FD_LEN)
 		return (NULL);
 	buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	if (!buffer)
