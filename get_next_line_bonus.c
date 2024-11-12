@@ -6,7 +6,7 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 18:13:55 by cayamash          #+#    #+#             */
-/*   Updated: 2024/11/12 10:24:52 by cayamash         ###   ########.fr       */
+/*   Updated: 2024/11/12 11:07:33 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,7 @@ char	*get_next_line(int fd)
 	line = read_line(fd, buffer, rest[fd]);
 	free_buffer(&buffer);
 	if (!line)
-	{
-		free_buffer(&rest[fd]);
-		return (NULL);
-	}
+		return (free_buffer(&rest[fd]));
 	rest[fd] = get_rest(line);
 	return (line);
 }
@@ -81,9 +78,7 @@ static char	*get_rest(char *line)
 		line[linelen] = '\0';
 	}
 	else
-	{
 		rest = NULL;
-	}
 	return (rest);
 }
 
